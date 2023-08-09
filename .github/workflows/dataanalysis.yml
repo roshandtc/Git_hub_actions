@@ -25,7 +25,7 @@ jobs:
         pip install pandas openpyxl
 
     - name: Run Data Analysis
-      run: python analyze_data.py  # Replace with the actual filename
+      run: python main.py 
 
     - name: Commit Results
       run: |
