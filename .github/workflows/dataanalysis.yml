@@ -1,1 +1,36 @@
 
+name: Data Analysis
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  analyze_data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas openpyxl
+
+    - name: Run Data Analysis
+      run: python analyze_data.py  # Replace with the actual filename
+
+    - name: Commit Results
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add summary.txt  # Replace with the actual filename
+        git commit -m "Add data analysis summary"
+        git push
