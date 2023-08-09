@@ -27,10 +27,5 @@ jobs:
     - name: Run Data Analysis
       run: python main.py 
 
-    - name: Commit Results
-      run: |
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
-        git add summary.txt  # Replace with the actual filename
-        git commit -m "Add data analysis summary"
-        git push
+  
+      
