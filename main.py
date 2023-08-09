@@ -20,3 +20,7 @@ class DataLoader:
         numeric_data = self.data.select_dtypes(include=['number'])
         summary = numeric_data.describe()
         return summary
+data_analyzer = DataAnalyzer('Titanic-Dataset.csv')  
+data_analyzer.load_data()
+summary = data_analyzer.summarize_numeric_variables()
+print(summary)
